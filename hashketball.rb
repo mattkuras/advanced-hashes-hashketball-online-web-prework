@@ -189,15 +189,59 @@ def player_stats(name)
   end
 end
 
+
+
+
 def big_shoe_rebounds
-    array = []
+    largest_shoe = 0 
+    rebound_king = 0
   game_hash.each do |home_away, hashes|
     hashes[:players].each do |player|
-     array << player[:shoe]
+     if player[:shoe] > largest_shoe
+       largest_shoe = player[:shoe]
+       rebound_king = player[:rebounds]
     end
   end
 end
-  array.sort!  
-end
+rebound_king
 end
 
+def most_points_scored
+  max_points = 0 
+  baller = "matt"
+  game_hash.each do |home_away, hashes|
+    hashes[:players].each do |player|
+      if player[:points] > max_points
+        max_points = player[:points]
+        baller = player[:player_name]
+      end
+    end
+  end
+  baller
+  
+end
+
+
+def long_name_steals_a_ton?
+  steal_king = "me"
+  name_king = "me"
+  max_name = 0 
+  max_steals = 0 
+  
+  game_hash.each { |home_away, hashes|
+    hashes[:players].each { |player|
+      if player[:steals] > max_steals
+        max_steals = player[:steals]
+        steal_king = player[:player_name]
+      end
+      binding.pry 
+      if player[:player_name].count > max_name
+        max_name = player[:player_name].count 
+        name_king = player[:player_name]
+      end
+    }
+  }
+    binding.pry
+
+  name_king == steal_king ? true : false 
+end
