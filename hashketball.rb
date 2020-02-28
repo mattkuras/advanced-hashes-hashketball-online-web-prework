@@ -238,8 +238,8 @@ def long_name_steals_a_ton?
       if player[:player_name].count > max_name
         max_name = player[:player_name].count 
         name_king = player[:player_name]
-      end
       binding.pry 
+      end
     end
   end
   
