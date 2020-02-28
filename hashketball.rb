@@ -237,8 +237,8 @@ def long_name_steals_a_ton?
       end
              binding.pry 
 
-      if player[:player_name].count > max_name
-        max_name = player[:player_name].count 
+      if player[:player_name].size > max_name
+        max_name = player[:player_name].size 
         name_king = player[:player_name]
       end
     end
