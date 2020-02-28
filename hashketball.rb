@@ -243,6 +243,6 @@ def long_name_steals_a_ton?
   }
   
 
-  name_king == steal_king ? true : false 
+  name_king == steal_king 
 
 end
