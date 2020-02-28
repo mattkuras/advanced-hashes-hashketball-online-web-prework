@@ -228,8 +228,8 @@ def long_name_steals_a_ton?
   max_name = 0 
   max_steals = 0 
   
-  game_hash.each { |home_away, hashes|
-    hashes[:players].each { |player|
+  game_hash.each do |home_away, hashes|
+    hashes[:players].each do |player|
       if player[:steals] > max_steals
         max_steals = player[:steals]
         steal_king = player[:player_name]
@@ -239,8 +239,9 @@ def long_name_steals_a_ton?
         max_name = player[:player_name].count 
         name_king = player[:player_name]
       end
-    }
-  }
+      binding.pry 
+    end
+  end
   
 
   name_king == steal_king 
